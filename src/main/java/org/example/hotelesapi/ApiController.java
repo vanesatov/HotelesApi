@@ -79,6 +79,8 @@ public class ApiController {
                 .toList();
     }
 
+
+
     /**
      * Verifica si una categoría es de gran lujo.
      *
