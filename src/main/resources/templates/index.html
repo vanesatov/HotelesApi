@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Hoteles</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <ul>
+        <li th:each="hotel:${hoteles}">
+            <h4 th:text="'Nombre: ' + ${hotel.name}"></h4>
+            <p th:text="'Estrellas: ' + ${hotel.categories}"></p>
+            <p th:text="'Provincia: ' + ${hotel.provinces}"></p>
+            <p th:text="'Dirección: ' + ${hotel.establishment_address}"></p>
+            <p th:text="'Municipio: ' + ${hotel.municipalities}"></p>
+            <p th:text="'Código Postal: ' + ${hotel.postal_code}"></p>
+            <p th:text="'Teléfono: ' + ${hotel.phone}"></p>
+            <p th:text="'Modalidad: ' + ${hotel.modalities}"></p>
+
+        </li>
+    </ul>
+</body>
+</html>
