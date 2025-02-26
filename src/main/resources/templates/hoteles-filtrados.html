@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title th:text="${titulo}"></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1 th:text="${titulo}" class="hotel-title"></h1>
+
+<a href="/web/" class="filter-hotels-button">Volver al Listado</a>
+
+<div class="hotel-container">
+  <ul class="hotel-list">
+    <li th:each="hotel : ${hoteles}" class="hotel-card">
+      <h2 th:text="${hotel.name}"></h2>
+      <p><strong>Estrellas:</strong> <span th:text="${hotel.categories}"></span></p>
+      <p><strong>Provincia:</strong> <span th:text="${hotel.provinces}"></span></p>
+      <p><strong>Dirección:</strong> <span th:text="${hotel.establishment_address}"></span></p>
+      <p><strong>Municipio:</strong> <span th:text="${hotel.municipalities}"></span></p>
+      <p><strong>Modalidad:</strong> <span th:text="${hotel.modalities}"></span></p>
+      <p><strong>Teléfono:</strong> <span th:text="${hotel.phone}"></span></p>
+    </li>
+  </ul>
+</div>
+
+
+
+</body>
+</html>

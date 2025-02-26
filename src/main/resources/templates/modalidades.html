@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${titulo}"></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1 th:text="${titulo}" class="hotel-title"></h1>
+
+<div class="grid-container">
+  <a th:each="modalidad : ${modalidades}"
+     th:href="@{'/web/hoteles/provincia/'+${provincia}+'/modalidad/'+${modalidad}+'/estrellas'}"
+     class="modalidad-card">
+    <span th:text="${modalidad}"></span>
+  </a>
+</div>
+
+<a href="/web/hoteles/provincias" class="back-button">Volver</a>
+
+</body>
+</html>

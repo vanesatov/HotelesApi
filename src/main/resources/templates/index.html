@@ -7,17 +7,36 @@
 </head>
 <body>
     <h1 th:text="${titulo}"></h1>
-    <ul>
-        <li th:each="hotel:${hoteles}">
-            <h4 th:text="'Nombre: ' + ${hotel.name}"></h4>
-            <p th:text="'Estrellas: ' + ${hotel.categories}"></p>
-            <p th:text="'Provincia: ' + ${hotel.provinces}"></p>
-            <p th:text="'Dirección: ' + ${hotel.establishment_address}"></p>
-            <p th:text="'Municipio: ' + ${hotel.municipalities}"></p>
-            <p th:text="'Código Postal: ' + ${hotel.postal_code}"></p>
-            <p th:text="'Teléfono: ' + ${hotel.phone}"></p>
-            <p th:text="'Modalidad: ' + ${hotel.modalities}"></p>
 
+
+    <div th:if="${usuario}">
+        <p class="usuario" th:text="${usuario.user}"></p>
+        <a href="/login/exit" class="login-button">Salir</a>
+    </div>
+    <div th:unless="${usuario}">
+        <a href="/login" class="login-button">Login</a>
+    </div>
+
+    <div class="filter-buttons">
+    <a href="/web/hoteles/provincias" class="filter-hotels-button">Hoteles por provincia / modalidad</a>
+    <a href="/web/hoteles/lujo" class="luxury-hotels-button">Hoteles Gran Lujo</a>
+    </div>
+
+
+    <ul>
+        <li class="new" th:if="${usuario}">
+            <a href="/web/new">Nuevo hotel</a>
+        </li>
+        <li th:each="hotel:${hoteles}">
+            <a th:href="@{'/web/'+${hotel._id}}">
+                <h4 th:text="${hotel.name}"></h4>
+                <p><strong>Estrellas:</strong> <span th:text="${hotel.categories}"></span></p>
+                <p><strong>Provincia:</strong> <span th:text="${hotel.provinces}"></span></p>
+                <p><strong>Dirección:</strong> <span th:text="${hotel.establishment_address}"></span></p>
+                <p><strong>Municipio:</strong> <span th:text="${hotel.municipalities}"></span></p>
+                <p><strong>Modalidad:</strong> <span th:text="${hotel.modalities}"></span></p>
+                <p><strong>Teléfono:</strong> <span th:text="${hotel.phone}"></span></p>
+            </a>
         </li>
     </ul>
 </body>
